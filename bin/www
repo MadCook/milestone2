@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../views');
+var app = require('../app');
 var debug = require('debug')('milestone2:server');
 var http = require('http');
 
