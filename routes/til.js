@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 var entries = [
-  {slug:"how to pass class", body: "come to class. do your homework", created_at: "some date"},
-  {slug:"how to fail class", body: "play video games all day", created_at: "some date"}
+  {slug:"Learning VIM", body: "Today I successfully set up the VM. Well I had already set it up but for the first time I successfully used it for something. Getting heroku to work on it was originally daunting but the task was manageable.", created_at: "2016-02-13"},
+  {slug:"Learning EJS", body: "Gosh programming can be finnicky. First I had it working locally but not on the server then nowhere. But it's working now.", created_at: "2016-03-14"}
 ];
 
 /* READ all: GET entries listing. */
@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 /* CREATE entry form: GET /entries/new */
 router.get('/new', function(req, res, next) {
-  res.render('til/new', {title: "Create new entry"});
+  res.render('til/new', {title: "Create new Til entry"});
 });
 
 /*CREATE entry: POST /entries/ */
