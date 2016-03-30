@@ -1,4 +1,15 @@
 <% include ../head %>
-<p>Welcome to <%= title %></p>
+<h1>Hello <%= name %></h1>
+
+<ul>
+<% for(var i=0; i<entries.length; i++) { %>
+ <li>
+   <a href='/entries/<%= entries[i].id %>' ><%= entries[i].slug %></a>
+   <a href='/entries/<%= entries[i].id %>/edit'>Edit</a>
+   <a href='/entries/<%= entries[i].id %>/delete'>Delete</a>
+ </li>
+<% } %>
+</ul>
+
 
 <% include ../footer %>
