@@ -3,7 +3,6 @@ var router = express.Router();
 
 var entries = [];
 
-
 /* READ all: GET entries listing. */
 router.get('/', function(req, res, next) {
   console.log(req.cookies.username);
