@@ -10,6 +10,8 @@ var til = require('./routes/til');
 
 var app = express();
 
+var orm = require('orm');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -22,12 +24,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// var db-connection-string = "";
-// app.use(orm.express(string, {
-//     define: function (db, models, next) {
-//         next();
-//     }
-// }));
+var localstring = "postgres://MadCook:cs2610@localhost/entries";
+var dbstring = process.env.DATABASE_URL || localstring;
+app.use(orm.express(dbstring, {
+define: function (db, models, next) {
+next();
+}
+}));
 
 app.use('/', routes);
 app.use('/til', til);
