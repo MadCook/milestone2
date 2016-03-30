@@ -24,13 +24,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var localstring = "postgres://MadCook:cs2610@localhost/entries";
+var localstring = "postgres://MadCook:Kaboom!2013@localhost/entries";
 var dbstring = process.env.DATABASE_URL || localstring;
 app.use(orm.express(dbstring, {
 define: function (db, models, next) {
 next();
 }
 }));
+
 
 app.use('/', routes);
 app.use('/til', til);
